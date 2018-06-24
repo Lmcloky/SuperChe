@@ -59,12 +59,15 @@
 
                                     <?php if(auth()->user()->admin): ?>
                                     <li>
+                                        <a href="<?php echo e(url('/admin/categories')); ?> ">Gestionar categorias</a>
+                                    </li>
+                                    <li>
                                         <a href="<?php echo e(url('/admin/products')); ?> ">Gestionar productos</a>
                                     </li>
                                     <?php endif; ?>
                                     <li>
                                         <a href="<?php echo e(route('logout')); ?> " onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit(); ">Desconectarse</a>
+                                        document.getElementById('logout-form').submit(); ">Cerar Sesión</a>
                                         <form id="logout-form" action="<?php echo e(route('logout')); ?> " method="POST" style="display: none;">
                                             <?php echo e(csrf_field()); ?>
 

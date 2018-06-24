@@ -25,4 +25,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->namespace('Admin')->group
 	Route::post('/products/{id}/images', 'ImageController@store');//listado
 	Route::delete('/products/{id}/images', 'ImageController@destroy');//eliminar
 	Route::get('/products/{id}/images/select/{image}', 'ImageController@select');
+
+	Route::get('categories','CategoryController@index');//listado de Categoryos
+	Route::get('/categories/create','CategoryController@create');//formulario Categoryos
+	Route::post('/categories','CategoryController@store');//registro Categoryos
+	Route::get('/categories/{category}/edit','CategoryController@edit');//formulario de edicion
+	Route::post('/categories/{category}/edit','CategoryController@update');//actualizar
+	Route::delete('/categories/{category}','CategoryController@destroy');//elimina
 });

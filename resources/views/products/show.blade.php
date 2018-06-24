@@ -33,12 +33,15 @@
                     <p>{{$product->description}}</p>
                 </div>
                 
+
+
                 <div class="text-center">
                     <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAddToCart">
                         <i class="material-icons">add</i> Añadir al carrito de compras
                     </button>
                 </div>
-
+                
+                
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
                         <div class="profile-tabs">
