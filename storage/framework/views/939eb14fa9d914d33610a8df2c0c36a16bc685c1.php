@@ -4,7 +4,7 @@
 
 <?php $__env->startSection('content'); ?>
 
-    <div class="header header-filter" style="background-image: url('/img/examples/city.jpg');"></div>
+    <div class="header header-filter" style="background-image: url('/images/logonegro3.png');"></div>
 
     <div class="main main-raised">
         <div class="profile-content">
@@ -34,9 +34,14 @@
 
                 
                 <div class="text-center">
+                    <?php if(auth()->check()): ?>
                     <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAddToCart">
                         <i class="material-icons">add</i> Añadir al carrito de compras
                     </button>
+                    <?php else: ?> 
+                        <a href="<?php echo e(url('/login?redirect_to='.url()->current())); ?> " class="btn btn-primary btn-round"> <i class="material-icons">add</i>Añidir al carrito de compras
+                        </a>
+                    <?php endif; ?>
                 </div>
                 
                 

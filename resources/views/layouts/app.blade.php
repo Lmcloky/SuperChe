@@ -54,7 +54,7 @@
                                 <ul class="dropdown-menu" role"menu">
                                     
                                     <li>
-                                        <a href="{{ url('/home') }} ">Dashboard</a>
+                                        <a href="{{ url('/home') }} ">Carrito de compras</a>
                                     </li>
 
                                     @if (auth()->user()->admin)

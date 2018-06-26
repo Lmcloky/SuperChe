@@ -5,7 +5,7 @@
 @section('body-class','product-page')
 
 @section('content')
-<div class="header header-filter" style="background-image: url('{{ asset('img/bg5.jpeg') }}');">
+<div class="header header-filter" style="background-image: url('{{ asset('images/logonegro.png') }}');">
 </div>
 
 <div class="main main-raised">

@@ -29,7 +29,7 @@
 
 <?php $__env->startSection('content'); ?>
 
-    <div class="header header-filter" style="background-image: url('/img/examples/city.jpg');"></div>
+    <div class="header header-filter" style="background-image: url('/images/logonegro3.png');"></div>
 
     <div class="main main-raised">
         <div class="profile-content">

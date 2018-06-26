@@ -54,7 +54,7 @@
                                 <ul class="dropdown-menu" role"menu">
                                     
                                     <li>
-                                        <a href="<?php echo e(url('/home')); ?> ">Dashboard</a>
+                                        <a href="<?php echo e(url('/home')); ?> ">Carrito de compras</a>
                                     </li>
 
                                     <?php if(auth()->user()->admin): ?>

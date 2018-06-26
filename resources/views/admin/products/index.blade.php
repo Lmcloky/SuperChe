@@ -5,7 +5,7 @@
 @section('body-class','product-page')
 
 @section('content')
-<div class="header header-filter" style="background-image: url('{{ asset('img/bg5.jpeg') }}');">
+<div class="header header-filter" style="background-image: url('{{ asset('images/logonegro.png') }}');">
 
 </div>
 
@@ -22,8 +22,8 @@
                     <thead>
                         <tr>
                             <th class="text-center">#</th>
-                            <th class="col-md-2 text-left">Nombre</th>
-                            <th class="col-md-5 text-left">Descripcion</th>
+                            <th class="col-md-2 text-center">Nombre</th>
+                            <th class="col-md-3 text-center">Descripcion</th>
                             <th>Categoria</th>
                             <th class="text-right">Precio</th>
                             <th class="text-right">Opciones</th>
@@ -36,7 +36,7 @@
                             <td>{{$product->name}}</td>
                             <td>{{$product->description}}</td>
                             <td>{{$product->category_name }}</td>
-                            <td class="text-right">&euro; {{$product->price}}</td>
+                            <td class="text-right">$ {{$product->price}}</td>
                             <td class="td-actions text-right">
                                 <form method="post" action="{{ url('/admin/products/'.$product->id.'/delete') }}">
                                     {{ csrf_field() }}

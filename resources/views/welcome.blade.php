@@ -8,10 +8,10 @@
     <style>
         /*.features {
             margin-top: -100px;
-        }
-        .section{
-            margin-top: -100px;
         }*/
+        .section-landing{
+            margin-top: -130px;
+        }
         .team .row. .col-md-4 {
             margin-bottom: 5em;
         }
@@ -30,11 +30,17 @@
 @endsection
 
 @section('content')
-<div class="header header-filter" style="background-image: url('{{ asset('img/bg5.jpeg') }}');">
+<div class="header header-filter" style="background-image: url('{{ asset('images/Chedraui-3.jpg') }}');">
 <div class="container">
     <div class="row">
+        <div class="profile text-center">
+            <div class="avatar">
+                <img src="/images/che.png" alt="Imagen de super che en linea" class="img img-responsive img-rounded">
+            </div>
+        </div>
         <div class="col-md-6">
-            <h1 class="title">Bienvenido a {{ config('app.name') }}.</h1>
+            <h1 class="title">
+            Bienvenido a {{ config('app.name') }}.</h1>
             <h4>Realiza tus pedidos en linea, facil y rapido.</h4>
             <br />
 <!--             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-danger btn-raised btn-lg">
@@ -75,13 +81,6 @@
     </div>
 
         <div class="section text-center section-landing">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h2 class="title">¿Porqué Super Che Store?</h2>
-                <h5 class="description">Puedes entrar, observar y decidir que productos gustas, que te convence y realizar tus pagos cuando estes seguro.</h5>
-            </div>
-        </div>
-
         <div class="features">
             <div class="row">
                 <div class="col-md-4">
@@ -120,31 +119,25 @@
             <div class="col-md-8 col-md-offset-2">
                 <h2 class="text-center title">¿Aun no te registras?</h2>
                 <h4 class="text-center description">Registrate en nuestra pagina ingresando tus datos básicos para poder realizar tus pedidos a travez de nuestro carrito de compras. Si todavia no te decides, de todas formas, mandanos un mensaje con las dudas que tengas y con gusto te atenderemos.</h4>
-                <form class="contact-form">
+                <form class="contact-form" method="get" action="{{ ('/register') }} ">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group label-floating">
                                 <label class="control-label">Nombre</label>
-                                <input type="email" class="form-control">
+                                <input type="text" class="form-control" name="name">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group label-floating">
                                 <label class="control-label">Correo electrónico</label>
-                                <input type="email" class="form-control">
+                                <input type="email" class="form-control" name="email">
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-group label-floating">
-                        <label class="control-label">Tu mensaje</label>
-                        <textarea class="form-control" rows="4"></textarea>
-                    </div>
-
                     <div class="row">
                         <div class="col-md-4 col-md-offset-4 text-center">
                             <button class="btn btn-primary btn-raised">
-                                Send Message
+                                Registrarce
                             </button>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer navar-warning">
 <div class="container">
     <nav class="pull-left">
         <ul>
