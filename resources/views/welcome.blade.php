@@ -1,11 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'Bienvenido a Super Che en linea')
+@section('title', 'Bienvenido a ' . config('app.name'))
 
 @section('body-class','landing-page') 
 
 @section('styles')
     <style>
+        /*.features {
+            margin-top: -100px;
+        }
+        .section{
+            margin-top: -100px;
+        }*/
         .team .row. .col-md-4 {
             margin-bottom: 5em;
         }
@@ -28,12 +34,12 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h1 class="title">Bienvenido a Super Che Store.</h1>
-            <h4>Realiza tus pedidos en line, facil y rapido.</h4>
+            <h1 class="title">Bienvenido a {{ config('app.name') }}.</h1>
+            <h4>Realiza tus pedidos en linea, facil y rapido.</h4>
             <br />
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-danger btn-raised btn-lg">
+<!--             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-danger btn-raised btn-lg">
                 <i class="fa fa-play"></i> Watch video
-            </a>
+            </a> -->
         </div>
     </div>
 </div>
@@ -41,7 +47,34 @@
 
 <div class="main main-raised">
 <div class="container">
-    <div class="section text-center section-landing">
+
+    <div class="section text-center">
+        <h2 class="title">Busca dentro de nuestros departamentos</h2><br>
+
+        <form class="form-inline" method="get" action="{{ url('/search') }} ">
+            <input type="text" placeholder="¿Qué producto buscas?" class="form-control" name="query" />
+            <button class="btn btn-primary btn-just-icon" type="submit">
+                <i class="material-icons">search</i>
+            </button>
+        </form>
+
+        <div class="team">
+            <div class="row">
+                @foreach ($departments as $department)
+                <div class="col-md-4">
+                    <div class="team-player">
+                        <img src="{{ $department->featured_image_url }} " alt="{{ $department->name }}" class="img-raised img-rounded">
+                        <h4 class="title"> <a href="{{ url('/departments/'.$department->id)}} ">{{$department->name}} </a><br />
+                        </h4>
+                        <p class="description">{{ $department->description }} </p>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+        <div class="section text-center section-landing">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h2 class="title">¿Porqué Super Che Store?</h2>
@@ -81,29 +114,6 @@
             </div>
         </div>
     </div>
-
-    <div class="section text-center">
-        <h2 class="title">Productos disponibles</h2>
-
-        <div class="team">
-            <div class="row">
-                @foreach ($products as $product)
-                <div class="col-md-4">
-                    <div class="team-player">
-                        <img src="{{ $product->featured_image_url }} " alt="Thumbnail Image" class="img-raised img-rounded">
-                        <h4 class="title"> <a href="{{ url('/products/'.$product->id)}} ">{{$product->name}} </a><br />
-                            <small class="text-muted">{{ $product->category->name }}</small>
-                        </h4>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-            <div class="text-center">
-                {{ $products->links() }}
-            </div>
-        </div>
-    </div>
-
 
     <div class="section landing-section">
         <div class="row">

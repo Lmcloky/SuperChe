@@ -1,10 +1,8 @@
-@extends('layouts.app')
+<?php $__env->startSection('title', 'SuperChe | Dashboard'); ?>
 
-@section('title', 'SuperChe | Dashboard')
+<?php $__env->startSection('body-class','profile-page'); ?> 
 
-@section('body-class','profile-page') 
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <div class="header header-filter" style="background-image: url('/img/examples/city.jpg');"></div>
 
@@ -14,23 +12,23 @@
                 <div class="row">
                     <div class="profile">
                         <div class="avatar">
-                            <img src=" {{ $product->featured_image_url }} " alt="Circle Image" class="img-circle img-responsive img-raised">
+                            <img src=" <?php echo e($product->featured_image_url); ?> " alt="Circle Image" class="img-circle img-responsive img-raised">
                         </div>
                         <div class="name">
-                            <h3 class="title">{{ $product->name }} </h3>
-                            <h6>{{ $product->category->name}} </h6>
+                            <h3 class="title"><?php echo e($product->name); ?> </h3>
+                            <h6><?php echo e($product->category->name); ?> </h6>
                         </div>
                         
-                        @if (session('notification'))
+                        <?php if(session('notification')): ?>
                             <div class="alert alert-success">
-                                {{ session('notification') }}        
+                                <?php echo e(session('notification')); ?>        
                             </div>
-                        @endif    
+                        <?php endif; ?>    
 
                     </div>
                 </div>
                 <div class="description text-center">
-                    <p>{{$product->description}}</p>
+                    <p><?php echo e($product->description); ?></p>
                 </div>
                 
 
@@ -51,14 +49,14 @@
                                     <div class="tab-pane active" id="studio">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                @foreach ($imagesLeft as $image)
-                                                <img src="{{ $image->url }}" class="img-rounded" />
-                                                @endforeach
+                                                <?php $__currentLoopData = $imagesLeft; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <img src="<?php echo e($image->url); ?>" class="img-rounded" />
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </div>
                                             <div class="col-md-6">
-                                                @foreach ($imagesRight as $image)
-                                                <img src="{{ $image->url }}" class="img-rounded" />
-                                                @endforeach
+                                                <?php $__currentLoopData = $imagesRight; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <img src="<?php echo e($image->url); ?>" class="img-rounded" />
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -80,9 +78,10 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Seleccione la cantidad que decea</h4>
       </div>
-      <form method="post" action=" {{ url('/cart') }} ">
-        {{ csrf_field() }}
-        <input type="hidden" name="product_id" value="{{$product->id }} ">
+      <form method="post" action=" <?php echo e(url('/cart')); ?> ">
+        <?php echo e(csrf_field()); ?>
+
+        <input type="hidden" name="product_id" value="<?php echo e($product->id); ?> ">
           <div class="modal-body">
             <input type="number" name="quantity" value="1" class="form-control">
           </div>
@@ -99,5 +98,6 @@
   </div>
 </div>
 
-@include('includes.footer')
-@endsection
+<?php echo $__env->make('includes.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

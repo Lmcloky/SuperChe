@@ -4,7 +4,7 @@
 
 @section('body-class','product-page')
 
-@section('content')
+@section('content') 
 <div class="header header-filter" style="background-image: url('{{ asset('img/bg5.jpeg') }}');">
 </div>
 
@@ -24,7 +24,7 @@
             </div>
         @endif
 
-        <form method="post" action="{{ url('/admin/categories/'.$category->id.'/edit') }}">
+        <form method="post" action="{{ url('/admin/categories/'.$category->id.'/edit') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
             
             <div class="col-sm-6 col-sm-offset-3">
@@ -38,8 +38,30 @@
                     <label class="control-label">Descripción</label>
                     <input type="text" class="form-control" name="description" value="{{ old('description', $category->description) }}">
                 </div>
-            </div><br><br><br><br><br><br><br><br><br><br><br>
-            <div class="col-sm-7">
+            </div>
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="form-group label-floating">
+                    <label class="control-label">Seleccionar departamento de la categoria</label>
+                    <select class="form-control" name="department_id">
+                        @foreach ($departments as $department)
+                        <option value="{{ $department->id }}" @if($department->id == old('department_id', $category->department_id)) selected @endif>
+                            {{ $department->name }} 
+                        </option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6 col-sm-offset-3">
+                    <label class="control-label">Selecciona una imagen para la categoria</label>
+                    <input type="file"name="image">
+                    @if ($category->image)
+                    <p class="help-block">
+                        Subir sólo si se desea reemplazar <a href="{{ asset('/images/categories/'.$category->image) }} " target="_blank"> la imagen actual</a>
+                    </p>
+                    @endif
+            </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="col-sm-6">
                 
             </div>
             <button class="btn btn-primary">Guardar cambios</button>

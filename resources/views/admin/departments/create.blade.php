@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Agrega una categoria')
+@section('title', 'Agrega un departamento')
 
 @section('body-class','product-page') 
  
@@ -12,12 +12,12 @@
 <div class="container">
 
     <div class="section">
-        <h2 class="title text-center">Registrar nueva categoria</h2>
+        <h2 class="title text-center">Registrar nuevo departamento</h2>
 
-        
+         
        <!--  Mostrar los mensajes de error
  -->
-         
+        
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -28,12 +28,12 @@
             </div>
         @endif
 
-        <form method="post" action="{{ url('/admin/categories')}}" enctype="multipart/form-data">
+        <form method="post" action="{{ url('/admin/departments')}} " enctype="multipart/form-data">
             {{csrf_field()}}
             
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="form-group label-floating">
-                    <label class="control-label">Nombre de la categoria</label>
+                    <label class="control-label">Nombre del departamento</label>
                     <input type="text" class="form-control" name="name" value=" {{ old('name')}} ">
                 </div>
             </div>
@@ -44,25 +44,15 @@
                 </div>
             </div>
             <div class="col-sm-6 col-sm-offset-3">
-                <div class="form-group label-floating">
-                    <label class="control-label">Selecciona el departamento de la categoría</label>
-                    <select class="form-control" name="department_id">
-                        @foreach ($departments as $department)
-                        <option value="{{ $department->id }}">{{ $department->name }} </option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-            <div class="col-sm-6 col-sm-offset-3">
                     <label class="control-label">Selecciona una imagen para la categoria</label>
                     <input type="file"name="image">
             </div>
-             <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+             <br><br><br><br><br><br><br><br><br><br><br>
             <div class="col-sm-6">
                 
             </div>
-            <button class="btn btn-primary">Registrar categoría</button>
-            <a href="{{ url('/admin/categories') }} " class="btn btn-default">Cancelar</a>
+            <button class="btn btn-primary">Registrar departamento</button>
+            <a href="{{ url('/admin/departments') }} " class="btn btn-default">Cancelar</a>
         </form>
     </div>
 

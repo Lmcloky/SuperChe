@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Product;
+use App\Category;
+use App\Department;
 
 class TestController extends Controller
 {
     public function welcome()
     {
-    	$products = Product::paginate(9);
-    	return view('welcome')->with(compact('products'));
+    	$departments = Department::has('categories')->get();
+    	return view('welcome')->with(compact('departments'));
     }
 }

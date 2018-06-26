@@ -43,16 +43,30 @@
                     <input type="text" class="form-control" name="description" value=" {{ old('description')}} ">
                 </div>
             </div>
+
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="form-group label-floating">
+                    <label class="control-label">Seleccionar categoría del producto</label>
+                    <select class="form-control" name="category_id">
+                        
+                        @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }} </option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="form-group label-floating">
                     <label class="control-label">Precio</label>
-                    <input type="number" class="form-control" name="price" value=" {{ old('price') }} ">
+                    <input type="number" class="form-control" name="price" step="any" value=" {{ old('price') }} ">
                 </div>
-            </div> <br><br><br><br><br><br><br><br><br><br><br>
-            <div class="col-sm-7">
+            </div> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="col-sm-5">
                 
             </div>
             <button class="btn btn-primary">Registrar producto</button>
+            <a href="{{ url('/admin/products') }} " class="btn btn-default">Cancelar</a>
         </form>
     </div>
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Lista de categorias')
-
+@section('title', 'Lista de departamentos')
+ 
 @section('body-class','product-page')
 
 @section('content')
@@ -13,40 +13,38 @@
 <div class="container">
 
     <div class="section text-center">
-        <h2 class="title">Listado de Categorias</h2>
+        <h2 class="title">Listado de Departamentos</h2>
 
         <div class="team">
             <div class="row">
-                <a href="{{url('/admin/categories/create')}} " class="btn btn-primary btn-round">Nueva Categoria</a>
+                <a href="{{url('/admin/departments/create')}} " class="btn btn-primary btn-round">Nuevo Departamento</a>
                 <table class="table">
                     <thead>
                         <tr>
                             <!-- <th class="text-center">#</th> -->
                             <th class="col-md-2 text-center">Nombre</th>
-                            <th class="col-md-4 text-center">Descripcion</th>
-                            <th class="col-md-2 text-center">Departamento</th>
+                            <th class="col-md-5 text-center">Descripcion</th>
                             <th class="col-md-2 text-center">Imagen</th>
                             <th class="text-right">Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($categories as $category)
+                        @foreach ($departments as $department)
                         <tr>
-                            <!-- <td class="text-center">{{$category->id}}</td> -->
-                            <td>{{$category->name}}</td>
-                            <td>{{$category->description}}</td>
-                            <td>{{$category->department_name }}</td>
+                            <!-- <td class="text-center">{{$department->id}}</td> -->
+                            <td>{{$department->name}}</td>
+                            <td>{{$department->description}}</td>
                             <td>
-                                <img src="{{$category->featured_image_url }} " height="59">
+                                <img src="{{$department->featured_image_url }} " height="59">
                             </td>
                             <td class="td-actions text-right">
-                                <form method="post" action="{{ url('/admin/categories/'.$category->id) }}">
+                                <form method="post" action="{{ url('/admin/departments/'.$department->id) }}">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <a href="" type="button" rel="tooltip" title="Ver categoria" class="btn btn-info btn-simple btn-xs">
                                     <i class="fa fa-info"></i>
                                     </a>
-                                    <a href="{{ url('/admin/categories/'.$category->id.'/edit') }} " type="button" rel="tooltip" title="Editar categoria" class="btn btn-success btn-simple btn-xs">
+                                    <a href="{{ url('/admin/departments/'.$department->id.'/edit') }} " type="button" rel="tooltip" title="Editar categoria" class="btn btn-success btn-simple btn-xs">
                                         <i class="fa fa-edit"></i>
                                     </a>
 <!--                                     <button type="submit" type="button" rel="tooltip" title="Eliminar" class="btn btn-danger btn-simple btn-xs">
@@ -59,7 +57,7 @@
                     @endforeach
                     </tbody>
                 </table>
-                {{ $categories->links() }}
+                {{ $departments->links() }}
             </div>
         </div>
 

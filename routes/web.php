@@ -6,6 +6,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/products/{id}','ProductController@show');
+Route::get('/categories/{category}','CategoryController@show');
+Route::get('/departments/{department}','DepartmentController@show');
+
+Route::get('/search','SearchController@show');
+
 
 Route::post('/cart','CartDetailController@store');
 Route::delete('/cart','CartDetailController@destroy');
@@ -32,4 +37,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->namespace('Admin')->group
 	Route::get('/categories/{category}/edit','CategoryController@edit');//formulario de edicion
 	Route::post('/categories/{category}/edit','CategoryController@update');//actualizar
 	Route::delete('/categories/{category}','CategoryController@destroy');//elimina
+
+	Route::get('departments','DepartmentController@index');//listado de Departmentos
+	Route::get('/departments/create','DepartmentController@create');//formulario Departmentos
+	Route::post('/departments','DepartmentController@store');//registro Departmentos
+	Route::get('/departments/{department}/edit','DepartmentController@edit');//formulario de edicion
+	Route::post('/departments/{department}/edit','DepartmentController@update');//actualizar
+	Route::delete('/departments/{department}','DepartmentController@destroy');//elimina
 });

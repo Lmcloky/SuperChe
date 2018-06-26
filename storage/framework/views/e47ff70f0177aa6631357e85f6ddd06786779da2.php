@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="<?php echo e(asset('img/favicon.png')); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title><?php echo $__env->yieldContent('title','Super Che Store'); ?></title>
+    <title><?php echo $__env->yieldContent('title',config('app.name') ); ?></title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
@@ -33,7 +33,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo e(url('/')); ?>">Super Che Store</a>
+                <a class="navbar-brand" href="<?php echo e(url('/')); ?>"><?php echo e(config('app.name')); ?></a>
             </div>
 
             <div class="collapse navbar-collapse" id="navigation-example">
@@ -58,6 +58,9 @@
                                     </li>
 
                                     <?php if(auth()->user()->admin): ?>
+                                    <li>
+                                        <a href="<?php echo e(url('/admin/departments')); ?> ">Gestionar departamentos</a>
+                                    </li>
                                     <li>
                                         <a href="<?php echo e(url('/admin/categories')); ?> ">Gestionar categorias</a>
                                     </li>

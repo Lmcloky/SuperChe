@@ -5,30 +5,29 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Category;
 use App\Department;
 use File;
 
-class CategoryController extends Controller
+class DepartmentController extends Controller
 {
     public function index()
     {
-    	$categories = Category::orderBy('name')->paginate(10);
-    	return view('admin.categories.index')->with(compact('categories'));//listado
+    	$departments = Department::orderBy('name')->paginate(10);
+    	return view('admin.departments.index')->with(compact('departments'));//listado
     }
 
     public function create()
     {
         $departments = Department::orderBy('name','desc')->get();
-    	return view('admin.categories.create')->with(compact('departments'));//formulario de registro
+    	return view('admin.departments.create')->with(compact('departments'));//formulario de registro
     }
 
     public function store(Request $request)
     {
     	//mensajes
     	$messages = [
-    		'name.required' => 'Por favor ingrese el nombre de la categoria',
-    		'name.min' => 'El nombre de la categoria debe de tener mas de tres caracteres',
+    		'name.required' => 'Por favor ingrese el nombre del departamento',
+    		'name.min' => 'El nombre del departamento debe de tener mas de tres caracteres',
     		'description.max' => 'La descripcion debe de ser corta'
     	];
 
@@ -39,33 +38,32 @@ class CategoryController extends Controller
     	];
     	$this->validate($request, $rules, $messages);
 
-    	$category = Category::create($request->only('name','description','department_id'));
+    	$department = Department::create($request->only('name','description')); //asignacion masiva de datos
 
-        if ($request->hasFile('image')){
+            if ($request->hasFile('image')){
             $file = $request->file('image');
-            $path = public_path() . '/images/categories';
+            $path = public_path() . '/images/departments';
             $fileName = uniqid() . '-' . $file->getClientOriginalName();
             $moved = $file->move($path, $fileName);
             if ($moved){
-                $category->image = $fileName;
-                $category->save();
+                $department->image = $fileName;
+                $department->save();
             }
         }
 
-    	return redirect('/admin/categories');
+    	return redirect('/admin/departments');
     }
 
-    public function edit(Category $category)
+    public function edit(Department $department)
     {
-        $departments = Department::orderBy('name','desc')->get();
-    	return view('admin.categories.edit')->with(compact('category','departments'));//formulario de registro
+    	return view('admin.departments.edit')->with(compact('department'));//formulario de registro
     }
 
-    public function update(Request $request,Category $category)
+    public function update(Request $request,Department $department)
     {
     	$messages = [
-    		'name.required' => 'Por favor ingrese el nombre de la categoria',
-    		'name.min' => 'El nombre de la categoria debe de tener mas de 5 caracteres',
+    		'name.required' => 'Por favor ingrese el nombre del departamento',
+    		'name.min' => 'El nombre del departamento debe de tener mas de 5 caracteres',
     		'description.max' => 'La descripcion debe de ser corta'
     	];
 
@@ -77,25 +75,25 @@ class CategoryController extends Controller
     	$this->validate($request, $rules, $messages);
     	//registrar el nuevo producto en la bd
     	//dd($request->all());
-    	$category->update($request->only('name','description','department_id'));
+    	$department->update($request->only('name','description'));
 
         if ($request->hasFile('image')){
             $file = $request->file('image');
-            $path = public_path() . '/images/categories';
+            $path = public_path() . '/images/departments';
             $fileName = uniqid() . '-' . $file->getClientOriginalName();
             $moved = $file->move($path, $fileName);
             if ($moved){
                 $previousPath = $path . '/' . $department->image;
 
-                $category->image = $fileName;
-                $saved = $category->save();
+                $department->image = $fileName;
+                $saved = $department->save();
 
                 if ($saved)
                     File::delete($previousPath);
             }
         }
 
-    	return redirect('/admin/categories');
+    	return redirect('/admin/departments');
     }
 
     //NO PODEMOS ELIMINAR DEBIDO A QUE LAS CATEGORIAS TIENEN PRODUCTOS
@@ -106,4 +104,3 @@ class CategoryController extends Controller
 		return back();
     }
 }
- 
