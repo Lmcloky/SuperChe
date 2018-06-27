@@ -85,7 +85,7 @@ class CategoryController extends Controller
             $fileName = uniqid() . '-' . $file->getClientOriginalName();
             $moved = $file->move($path, $fileName);
             if ($moved){
-                $previousPath = $path . '/' . $department->image;
+                $previousPath = $path . '/' . $category->image;
 
                 $category->image = $fileName;
                 $saved = $category->save();
