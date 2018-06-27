@@ -5,7 +5,7 @@
 <?php $__env->startSection('styles'); ?>
     <style>
         .profile {
-            margin-left: 380px;
+            margin-left: 360px;
         }
         .team {
             padding-bottom: 50px;
@@ -60,7 +60,11 @@
                             <div class="team-player">
                                 <img src="<?php echo e($product->featured_image_url); ?> " alt="Thumbnail Image" class="img-raised img-rounded">
                                 <h4 class="title"> <a href="<?php echo e(url('/products/'.$product->id)); ?> "><?php echo e($product->name); ?> </a><br />
-                                    <small class="text-muted"><?php echo e($product->category_name); ?></small>
+                                    <small class="text-muted"><?php echo e($product->category_name); ?> 
+                                    <br>Precio del producto: <?php echo e($product->price); ?>
+
+
+                                    </small>
                                 </h4>
                             </div>
                         </div>

@@ -16,7 +16,6 @@
                         </div>
                         <div class="name">
                             <h3 class="title"><?php echo e($product->name); ?> </h3>
-                            <h6><?php echo e($product->category->name); ?> </h6>
                         </div>
                         
                         <?php if(session('notification')): ?>
@@ -29,6 +28,7 @@
                 </div>
                 <div class="description text-center">
                     <p><?php echo e($product->description); ?></p>
+                    <p>Precio del producto: <?php echo e($product->price); ?></p>
                 </div>
                 
 

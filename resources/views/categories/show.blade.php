@@ -7,7 +7,7 @@
 @section('styles')
     <style>
         .profile {
-            margin-left: 380px;
+            margin-left: 360px;
         }
         .team {
             padding-bottom: 50px;
@@ -62,7 +62,10 @@
                             <div class="team-player">
                                 <img src="{{ $product->featured_image_url }} " alt="Thumbnail Image" class="img-raised img-rounded">
                                 <h4 class="title"> <a href="{{ url('/products/'.$product->id)}} ">{{$product->name}} </a><br />
-                                    <small class="text-muted">{{ $product->category_name }}</small>
+                                    <small class="text-muted">{{ $product->category_name }} 
+                                    <br>Precio del producto: {{ $product->price }}
+
+                                    </small>
                                 </h4>
                             </div>
                         </div>
