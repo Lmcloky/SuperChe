@@ -30,7 +30,7 @@
                 </div>
                 <div class="description text-center">
                     <p>{{$product->description}}</p>
-                    <p>Precio del producto: {{$product->price }}</p>
+                    <p>Precio del producto: ${{$product->price }}</p>
                 </div>
                 
 

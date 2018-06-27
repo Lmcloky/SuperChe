@@ -5,7 +5,7 @@
 <?php $__env->startSection('styles'); ?>
     <style>
         .profile {
-            margin-left: 360px;
+            margin-left: 390px;
         }
         .team {
             padding-bottom: 50px;
@@ -37,48 +37,43 @@
                 <div class="row">
                     <div class="profile text-center">
                         <div class="avatar">
-                            <img src=" <?php echo e($category->featured_image_url); ?> " alt="<?php echo e($category->name); ?> " class="img-circle img-responsive img-raised">
+                            <img src=" <?php echo e($department->featured_image_url); ?> " alt="Circle Image" class="img-circle img-responsive img-raised">
                         </div>
-                        <div class="namer">
-                            <h3 class="title">Productos de la categoría: <?php echo e($category->name); ?> </h3>
+                        <div class="name">
+                            <h3 class="title">Categorias del <?php echo e($department->name); ?> </h3>
                         </div>
-<!--                         <?php if(session('notification')): ?>
+                        
+                        <?php if(session('notification')): ?>
                             <div class="alert alert-success">
                                 <?php echo e(session('notification')); ?>        
                             </div>
-                        <?php endif; ?>     -->
+                        <?php endif; ?>    
+
                     </div>
                 </div>
                 <div class="description text-center">
-                    <p><?php echo e($category->description); ?></p>
+                    <p><?php echo e($department->description); ?></p>
                 </div>
                 
                 <div class="team text-center">
                     <div class="row">
-                        <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="col-md-4">
                             <div class="team-player">
-                                <img src="<?php echo e($product->featured_image_url); ?> " alt="Thumbnail Image" class="img-raised img-rounded">
-                                <h4 class="title"> <a href="<?php echo e(url('/products/'.$product->id)); ?> "><?php echo e($product->name); ?> </a><br />
-                                    <small class="text-muted"><?php echo e($product->category_name); ?> 
-                                    <br>Precio del producto: $<?php echo e($product->price); ?>
-
-
-                                    </small>
+                                <img src="<?php echo e($category->featured_image_url); ?> " alt="<?php echo e($category->name); ?>" class="img-raised img-rounded">
+                                <h4 class="title"> <a href="<?php echo e(url('/categories/'.$category->id)); ?> "><?php echo e($category->name); ?> </a><br />
                                 </h4>
+                                <p class="description"><?php echo e($category->description); ?> </p>
                             </div>
                         </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </div>
-                    <div class="text-center">
-                        <?php echo e($products->links()); ?>
-
                     </div>
                 </div>
 
             </div>
         </div>
     </div>
+<!-- Modal Core -->
 
 <?php echo $__env->make('includes.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php $__env->stopSection(); ?>

@@ -28,7 +28,7 @@
                 </div>
                 <div class="description text-center">
                     <p><?php echo e($product->description); ?></p>
-                    <p>Precio del producto: <?php echo e($product->price); ?></p>
+                    <p>Precio del producto: $<?php echo e($product->price); ?></p>
                 </div>
                 
 
