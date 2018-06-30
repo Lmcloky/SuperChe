@@ -25,6 +25,11 @@
                                 {{ session('notification') }}        
                             </div>
                         @endif    
+                        @if (session('notificationerror'))
+                            <div class="alert alert-danger">
+                                {{ session('notificationerror') }}        
+                            </div>
+                        @endif    
 
                     </div>
                 </div>

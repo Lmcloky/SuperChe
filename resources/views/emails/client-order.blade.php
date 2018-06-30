@@ -5,8 +5,8 @@
 	<link>
 </head>
 <body>
-	<p>Se ha realzado un nuevo pedido!</p>
-	<p>Estos son los datos del cliente que realizó el pedido</p>
+	<p>Has realizado un nuevo pedido!</p>
+	<p>Estos son tus datos</p>
 
 	<ul>
 		<li>
@@ -37,9 +37,5 @@
 		<strong>Importe a pagar: </strong>{{ $cart->total }}
 	</p>
 	<hr>
-	<p>
-		<!-- <a href=" {{ url('/admin/orders/'.$cart->id) }} ">Haz clic aquí</a>
-		para ver mas informacion sobre este pedido. -->
-	</p>
 </body>
 </html>

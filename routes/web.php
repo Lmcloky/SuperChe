@@ -44,4 +44,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->namespace('Admin')->group
 	Route::get('/departments/{department}/edit','DepartmentController@edit');//formulario de edicion
 	Route::post('/departments/{department}/edit','DepartmentController@update');//actualizar
 	Route::delete('/departments/{department}','DepartmentController@destroy');//elimina
+
+	Route::get('/users','RegisterController@index');//listado de Usuarios
+	Route::get('/users/{user}/edit','RegisterController@edit');//formulario de edicion
+	Route::post('/users/{user}/edit','RegisterController@update');//actualizar
 });

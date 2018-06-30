@@ -21,7 +21,7 @@ class ProductController extends Controller
         $categories = Category::orderBy('name')->get();
     	return view('admin.products.create')->with(compact('categories'));//formulario de registro
     }
-
+ 
     public function store(Request $request)
     {
     	//mensajes

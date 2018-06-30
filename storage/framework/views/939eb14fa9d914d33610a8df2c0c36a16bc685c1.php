@@ -23,6 +23,11 @@
                                 <?php echo e(session('notification')); ?>        
                             </div>
                         <?php endif; ?>    
+                        <?php if(session('notificationerror')): ?>
+                            <div class="alert alert-danger">
+                                <?php echo e(session('notificationerror')); ?>        
+                            </div>
+                        <?php endif; ?>    
 
                     </div>
                 </div>

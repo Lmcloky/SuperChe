@@ -18,6 +18,11 @@
                     {{ session('notification') }}
                 </div>
             @endif
+            @if (session('notificationerror'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('notificationerror') }}
+                </div>
+            @endif
 
             <ul class="nav nav-pills nav-pills-primary" role="tablist">
                 <li class="active">
