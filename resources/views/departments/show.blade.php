@@ -42,7 +42,7 @@
                             <img src=" {{ $department->featured_image_url }} " alt="Circle Image" class="img-circle img-responsive img-raised">
                         </div>
                         <div class="name">
-                            <h3 class="title">Categorias del {{ $department->name }} </h3>
+                            <h3 class="title">Categoria: {{ $department->name }} </h3>
                         </div>
                         
                         @if (session('notification'))

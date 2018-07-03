@@ -18,8 +18,8 @@
                 </a>
             </li>
             <li>
-                <a href="#">
-                    Programacion y mas.
+                <a href="<?php echo e(url('/politics/')); ?>" target="_blank">
+                    Politicas de privacidad.
                 </a>
             </li>
         </ul>

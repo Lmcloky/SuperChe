@@ -63,7 +63,7 @@
                                 <img src="{{ $product->featured_image_url }} " alt="Thumbnail Image" class="img-raised img-rounded">
                                 <h4 class="title"> <a href="{{ url('/products/'.$product->id)}} ">{{$product->name}} </a><br />
                                     <small class="text-muted">{{ $product->category_name }} 
-                                    <br>Precio del producto: ${{ $product->price }}
+                                    <br> ${{ $product->price }}
                                     
                                     </small>
                                 </h4>
