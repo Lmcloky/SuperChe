@@ -40,7 +40,6 @@
                 </div>
                 
 
-                
                 <div class="text-center">
                     @if (auth()->check())
                     <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAddToCart">
@@ -52,6 +51,7 @@
                     @endif
                 </div>
                 
+
                 
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">

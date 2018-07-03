@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function show(Category $category)
     {
-    	$products = $category->products()->paginate(10);
+    	$products = $category->products->where('subsistence_id','=','1');
     	return view('categories.show')->with(compact('category','products'));
     }
 }
