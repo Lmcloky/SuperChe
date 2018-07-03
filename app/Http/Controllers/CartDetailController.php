@@ -22,7 +22,7 @@ class CartDetailController extends Controller
 		$cartDetail->cart_id = auth()->user()->cart->id;
 		// $cartDetal->product_id->subsistence_id = $request->subsistence_id;
 		//$product->cartDetail->cart_id =  auth()->user()->cart->id;
-		$product->subsistence_id = $request->subsistence_id;
+		//$product->subsistence_id = $request->subsistence_id;
 		$cartDetail->product_id = $request->product_id;
 	    $cartDetail->quantity = $request->quantity;
 	    // if ($product->subsistence_id = 2) {

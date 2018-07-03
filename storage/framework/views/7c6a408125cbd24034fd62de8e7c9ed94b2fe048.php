@@ -40,7 +40,7 @@
                             <img src=" <?php echo e($department->featured_image_url); ?> " alt="Circle Image" class="img-circle img-responsive img-raised">
                         </div>
                         <div class="name">
-                            <h3 class="title">Categorias del <?php echo e($department->name); ?> </h3>
+                            <h3 class="title">Categoria: <?php echo e($department->name); ?> </h3>
                         </div>
                         
                         <?php if(session('notification')): ?>
