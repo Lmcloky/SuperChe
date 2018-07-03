@@ -20,16 +20,15 @@ class CartDetailController extends Controller
 		$cartDetail->cart_id = auth()->user()->cart->id;
 		$cartDetail->product_id = $request->product_id;
 	    $cartDetail->quantity = $request->quantity;
-	    if ($cartDetail->quantity < 0) {
+	    if ($cartDetail->quantity < 1) {
 	    	$notificationerror = 'Usted necesita agregar producto valido!';
 	    	return back()->with(compact('notificationerror'));
 	    }
 	    if ($cartDetail->quantity > 4) {
-	    	$notificationerror = 'Nuestra politica de privacidad no permite la venta de mas de 5 productos!';
+	    	$notificationerror = 'Nuestra politica de privacidad no permite la venta de mas de 4 productos!';
 	    	return back()->with(compact('notificationerror'));
 	    }
 	    $cartDetail->save();
-
 	    $notification = 'El producto se ha agregado al carrito de compras exitosamente!';
 	    return back()->with(compact('notification'));
 	}

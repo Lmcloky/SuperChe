@@ -12,7 +12,7 @@
         .section-landing{
             margin-top: -130px;
         }
-        .team .row. .col-md-4 {
+        .team .row .col-md-4 {
             margin-bottom: 5em;
         }
         .row {
@@ -53,6 +53,7 @@
 
 <div class="main main-raised">
 <div class="container">
+
 
     <div class="section text-center">
         <h2 class="title">Busca dentro de nuestros departamentos</h2><br>
