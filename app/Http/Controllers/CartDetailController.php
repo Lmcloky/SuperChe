@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\CartDetail;
+use App\Product;
+use App\Subsistence;
 
 class CartDetailController extends Controller
 {
@@ -15,11 +17,18 @@ class CartDetailController extends Controller
 
 	public function store(Request $request)
 	{
-		
+
 		$cartDetail = new CartDetail();
 		$cartDetail->cart_id = auth()->user()->cart->id;
+		// $cartDetal->product_id->subsistence_id = $request->subsistence_id;
+		//$product->cartDetail->cart_id =  auth()->user()->cart->id;
+		$product->subsistence_id = $request->subsistence_id;
 		$cartDetail->product_id = $request->product_id;
 	    $cartDetail->quantity = $request->quantity;
+	    // if ($product->subsistence_id = 2) {
+	    // 	$notificationerror = 'Por el momento no tenemos productos, Lo sentimos!';
+	    // 	return back()->with(compact('notificationerror'));
+	    // }
 	    if ($cartDetail->quantity < 1) {
 	    	$notificationerror = 'Usted necesita agregar producto valido!';
 	    	return back()->with(compact('notificationerror'));
@@ -32,6 +41,7 @@ class CartDetailController extends Controller
 	    $notification = 'El producto se ha agregado al carrito de compras exitosamente!';
 	    return back()->with(compact('notification'));
 	}
+
 		public function destroy(Request $request)
 	{
 		$cartDetail = CartDetail::find($request->cart_detail_id);

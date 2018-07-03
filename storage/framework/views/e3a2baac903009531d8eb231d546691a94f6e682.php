@@ -63,7 +63,7 @@
                                     <small class="text-muted"><?php echo e($product->category_name); ?> 
                                     <br>Precio del producto: $<?php echo e($product->price); ?>
 
-
+                                    
                                     </small>
                                 </h4>
                             </div>

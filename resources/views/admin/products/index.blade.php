@@ -26,6 +26,7 @@
                             <th class="col-md-3 text-center">Descripcion</th>
                             <th>Categoria</th>
                             <th class="text-right">Precio</th>
+                            <th>Disponibilidad</th>
                             <th class="text-right">Opciones</th>
                         </tr>
                     </thead>
@@ -35,8 +36,9 @@
                             <td class="text-center">{{$product->id}}</td>
                             <td>{{$product->name}}</td>
                             <td>{{$product->description}}</td>
-                            <td>{{$product->category_name }}</td>
+                            <td>{{$product->category_name}}</td>
                             <td class="text-right">$ {{$product->price}}</td>
+                            <td>{{$product->subsistence->description}}</td>
                             <td class="td-actions text-right">
                                 <form method="post" action="{{ url('/admin/products/'.$product->id.'/delete') }}">
                                     {{ csrf_field() }}

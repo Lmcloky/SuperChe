@@ -34,6 +34,7 @@
                 <div class="description text-center">
                     <p><?php echo e($product->description); ?></p>
                     <p>Precio del producto: $<?php echo e($product->price); ?></p>
+                    <h3 class="title"><?php echo e($product->subsistence->description); ?> </h3>
                 </div>
                 
 

@@ -36,6 +36,7 @@
                 <div class="description text-center">
                     <p>{{$product->description}}</p>
                     <p>Precio del producto: ${{$product->price }}</p>
+                    <h3 class="title">{{ $product->subsistence->description }} </h3>
                 </div>
                 
 

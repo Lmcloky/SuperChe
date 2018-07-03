@@ -56,7 +56,19 @@
                     <label class="control-label">Precio</label>
                     <input type="number" step="0.01" class="form-control" name="price" value="{{ old('price', $product->price) }}">
                 </div>
-            </div> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            </div>
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="form-group label-floating">
+                    <label class="control-label">Existen productos</label>
+                    <select class="form-control" name="subsistence_id">
+                        @foreach ($subsistences as $subsistence)
+                        <option value="{{ $subsistence->id }}" @if($subsistence->id == old('subsistence_id', $product->subsistence_id)) selected @endif>
+                            {{ $subsistence->description }} 
+                        </option>
+                        @endforeach
+                    </select>
+                </div>
+            </div> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <div class="col-sm-6">
                 
             </div>

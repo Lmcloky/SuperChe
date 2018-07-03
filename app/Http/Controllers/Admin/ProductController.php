@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\ProductImage;
 use App\Category;
+use App\Subsistence;
 
 class ProductController extends Controller
 {
@@ -15,11 +16,11 @@ class ProductController extends Controller
     	$products = Product::paginate(10);
     	return view('admin.products.index')->with(compact('products'));//listado
     }
-
     public function create()
     {
+        $subsistences = Subsistence::orderBy('description')->get();
         $categories = Category::orderBy('name')->get();
-    	return view('admin.products.create')->with(compact('categories'));//formulario de registro
+    	return view('admin.products.create')->with(compact('categories','subsistences'));//formulario de registro
     }
  
     public function store(Request $request)
@@ -49,6 +50,7 @@ class ProductController extends Controller
     	$product->description = $request->input('description');
         $product->category_id = $request->category_id;
     	$product->price = $request->input('price');
+        $product->subsistence_id = 1 ;
     	$product->save();//insert en la tabla producto
 
     	return redirect('/admin/products');
@@ -56,9 +58,10 @@ class ProductController extends Controller
 
     public function edit($id)
     {
+        $subsistences = Subsistence::orderBy('description')->get();
         $categories = Category::orderBy('name')->get();
     	$product = Product::find($id);
-    	return view('admin.products.edit')->with(compact('product', 'categories'));//formulario de registro
+    	return view('admin.products.edit')->with(compact('product', 'categories','subsistences'));//formulario de registro
     }
 
     public function update(Request $request, $id)
@@ -87,6 +90,7 @@ class ProductController extends Controller
     	$product->description = $request->input('description');
         $product->category_id = $request->category_id;
     	$product->price = $request->input('price');
+        $product->subsistence_id = $request->subsistence_id;
     	$product->save();//insert en la tabla producto
 
     	return redirect('/admin/products');

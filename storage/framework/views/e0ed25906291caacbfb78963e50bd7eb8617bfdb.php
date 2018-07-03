@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Agrega un departamento'); ?>
+<?php $__env->startSection('title', 'Agrega un producto'); ?>
 
 <?php $__env->startSection('body-class','product-page'); ?> 
  
@@ -10,9 +10,9 @@
 <div class="container">
 
     <div class="section">
-        <h2 class="title text-center">Registrar nuevo departamento</h2>
+        <h2 class="title text-center">Registrar nuevo producto</h2>
 
-         
+        
        <!--  Mostrar los mensajes de error
  -->
         
@@ -26,13 +26,13 @@
             </div>
         <?php endif; ?>
 
-        <form method="post" action="<?php echo e(url('/admin/departments')); ?> " enctype="multipart/form-data">
+        <form method="post" action="<?php echo e(url('/admin/products')); ?> ">
             <?php echo e(csrf_field()); ?>
 
             
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="form-group label-floating">
-                    <label class="control-label">Nombre del departamento</label>
+                    <label class="control-label">Nombre del producto</label>
                     <input type="text" class="form-control" name="name" value=" <?php echo e(old('name')); ?> ">
                 </div>
             </div>
@@ -42,16 +42,30 @@
                     <input type="text" class="form-control" name="description" value=" <?php echo e(old('description')); ?> ">
                 </div>
             </div>
+
             <div class="col-sm-6 col-sm-offset-3">
-                    <label class="control-label">Selecciona una imagen para la categoria</label>
-                    <input type="file"name="image">
+                <div class="form-group label-floating">
+                    <label class="control-label">Seleccionar categoría del producto</label>
+                    <select class="form-control" name="category_id">
+                        
+                        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($category->id); ?>"><?php echo e($category->name); ?> </option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </select>
+                </div>
             </div>
-             <br><br><br><br><br><br><br><br><br><br><br>
-            <div class="col-sm-6">
+
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="form-group label-floating">
+                    <label class="control-label">Precio</label>
+                    <input type="number" class="form-control" name="price" step="any" value=" <?php echo e(old('price')); ?> ">
+                </div>
+            </div> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="col-sm-5">
                 
             </div>
-            <button class="btn btn-primary">Registrar departamento</button>
-            <a href="<?php echo e(url('/admin/departments')); ?> " class="btn btn-default">Cancelar</a>
+            <button class="btn btn-primary">Registrar producto</button>
+            <a href="<?php echo e(url('/admin/products')); ?> " class="btn btn-default">Cancelar</a>
         </form>
     </div>
 

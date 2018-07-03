@@ -64,7 +64,7 @@
                                 <h4 class="title"> <a href="{{ url('/products/'.$product->id)}} ">{{$product->name}} </a><br />
                                     <small class="text-muted">{{ $product->category_name }} 
                                     <br>Precio del producto: ${{ $product->price }}
-
+                                    
                                     </small>
                                 </h4>
                             </div>

@@ -16,6 +16,11 @@ class Product extends Model
     {
     	return $this->hasMany(ProductImage::class);
     }
+    // $product->subsistence
+    public function subsistence()
+    {
+        return $this->belongsTo(Subsistence::class);
+    }
     
     public function getFeaturedImageUrlAttribute(){
         $featuredImage = $this->images()->where('featured', true)->first();
@@ -33,5 +38,12 @@ class Product extends Model
             return $this->category->name;
 
         return 'General';
+    }
+    public function getSubsistenceNameAttibute()
+    {
+        if ($this->subsistence)
+            return $this->subsistence->description;
+
+        return 'En existencia';
     }
 }
